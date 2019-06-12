@@ -29,7 +29,6 @@ export default {
 <style lang="scss" scoped>
 .header--wrapper {
   color: white;
-  width: 100vw;
 
   .header {
     height: 45rem;
@@ -64,6 +63,7 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+
       ul {
         text-decoration: none;
         list-style: none;

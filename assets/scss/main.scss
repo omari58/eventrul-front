@@ -1,5 +1,5 @@
-@import "variables";
-@import "functions";
+@import 'variables';
+@import 'functions';
 @import url('https://use.typekit.net/nvg1xdz.css');
 
 html {
@@ -15,6 +15,25 @@ html {
     margin: 0;
     padding: 0;
   }
-};
 
+  h1, h2, h3, h4 {
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 1rem 0;
+  }
 
+  .section--wrapper {
+    padding: 0;
+    margin: 4rem 0;
+
+    .section-title {
+      font-size: 3.6rem;
+      font-weight: 400;
+      color: $dark;
+    }
+
+    .section-content {
+      margin: 4rem 0;
+    }
+  }
+}
