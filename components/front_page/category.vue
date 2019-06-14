@@ -4,7 +4,7 @@
       class="background-image"
       :style="{
         background: `url(${src})` + ' center',
-        backgroundSize: '30rem',
+        backgroundSize: '100%',
         backgroundPosition: 'center'
       }"
     >
@@ -18,30 +18,30 @@
 <script>
 export default {
   name: 'category',
-  props: ['src', 'name']
+  props: ['src', 'name'],
+  data() {
+    return {}
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .wrapper {
-  height: 9rem;
-  width: 30rem;
+  height: 5rem;
+  width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: 'serenity';
+
   .background-image {
-    height: 7rem;
+    height: 100%;
     width: 100%;
 
     border-radius: 1rem;
     cursor: pointer;
-
-    transition: height 0.25s ease-in-out;
-
-    &:hover {
-      height: 9rem;
-    }
 
     .mask {
       width: 100%;
@@ -60,7 +60,7 @@ export default {
 
     span {
       color: white;
-      font-size: 2.8rem;
+      font-size: 1.25rem;
       font-weight: 400;
       text-transform: uppercase;
       text-align: center;

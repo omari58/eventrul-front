@@ -23,7 +23,9 @@
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/style-resources": "^0.1.2",
     "nuxt": "^2.0.0",
-    "nuxt-fontawesome": "^0.4.0"
+    "nuxt-fontawesome": "^0.4.0",
+    "popper.js": "^1.15.0",
+    "vue-scrollto": "^2.15.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -38,11 +40,14 @@
     "eslint-plugin-promise": ">=4.0.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "fomantic-ui": "^2.7.5",
+    "gulp": "^4.0.2",
     "i": "^0.3.6",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "npm": "^6.9.0",
     "prettier": "^1.16.4",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue-viewports": "^3.1.2"
   }
 }

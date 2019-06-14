@@ -6,7 +6,7 @@
         <p>{{ offer.content }}</p>
       </div>
       <template v-slot:footer>
-        <div class="btn">Loe rohkem</div>
+        <f-btn size="small">Loe edasi</f-btn>
       </template>
     </card>
   </div>
@@ -33,21 +33,6 @@ export default {
     h3 {
       text-align: center;
     }
-  }
-  .btn {
-    width: 10rem;
-    height: 3rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: white;
-    border: 1px solid $grey;
-    border-radius: 1rem;
-    color: $dark;
-
-    cursor: pointer;
   }
 }
 </style>

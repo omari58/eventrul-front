@@ -1,18 +1,15 @@
 <template>
   <div>
-    <page-header />
     <nuxt />
     <page-footer />
   </div>
 </template>
 
 <script>
-import pageHeader from '~/components/pageHeader'
 import pageFooter from '~/components/pageFooter'
 export default {
   components: {
-    pageFooter,
-    pageHeader
+    pageFooter
   }
 }
 </script>
