@@ -82,11 +82,21 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     'vue-scrollto/nuxt'
   ],
+
+  proxy: {
+    '/api/': {
+      target: 'https://instaevent-project-002.appspot.com',
+      pathRewrite: {
+        '^/api' : ''
+      }
+    }
+  },
 
   styleResources: {
     scss: ['~assets/scss/_variables.scss']
@@ -96,7 +106,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true
+  },
   /*
    ** Build configuration
    */

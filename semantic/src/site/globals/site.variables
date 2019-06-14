@@ -20,3 +20,5 @@
 @brown          : #A52A2A;
 @grey           : #C7C7C7;
 @black          : #373737;
+
+@smallMonitorBreakpoint : 1200px

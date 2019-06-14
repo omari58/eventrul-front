@@ -12,7 +12,7 @@
           style="box-shadow: none"
         >
           <div class="content">
-            <nuxt-link to="/asukoht">
+            <nuxt-link :to="'/sirvi?cat=' + cat.name.toLowerCase()">
               <category :name="cat.name" :src="cat.src" />
             </nuxt-link>
           </div>
