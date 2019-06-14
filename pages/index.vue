@@ -227,12 +227,7 @@ export default {
       ]
     }
   },
-  async mounted() {
-    const categories = await this.$axios.post('/categories')
-
-
-
-  }
+  async mounted() {}
 }
 </script>
 

@@ -1,0 +1,22 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@@fontName          : 'serenity', sans-serif;
+@pageFont           : 'serenity', sans-serif;
+
+@primaryColor   : #49A7EC;
+@secondaryColor : @black;
+@red            : #E95454;
+@orange         : #FE9A76;
+@yellow         : #FFC916;
+@olive          : #32CD32;
+@green          : #49D687;
+@teal           : #008080;
+@blue           : #0E6EB8;
+@violet         : #EE82EE;
+@purple         : #B413EC;
+@pink           : #FF1493;
+@brown          : #A52A2A;
+@grey           : #C7C7C7;
+@black          : #373737;
