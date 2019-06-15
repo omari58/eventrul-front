@@ -65,9 +65,11 @@
               </div>
             </div>
             <div class="item">
-              <button class="ui button secondary right floated fluid">
-                OTSI
-              </button>
+              <nuxt-link to="/sirvi">
+                <button class="ui button secondary right floated fluid">
+                  OTSI
+                </button>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -89,7 +91,9 @@ export default {
   },
   mounted() {
     // eslint-disable-next-line
-    $('#date_calendar').calendar()
+    $('#date_calendar').calendar({
+      type: 'date'
+    })
   }
 }
 </script>

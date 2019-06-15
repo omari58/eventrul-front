@@ -3,7 +3,6 @@
     <front-page-header />
     <div class="ui container" id="FpScrollTarget">
       <div class="ui huge header">Kust soovid alustada?</div>
-
       <div class="ui four stackable cards">
         <div
           v-for="cat in categories"
@@ -12,8 +11,10 @@
           style="box-shadow: none"
         >
           <div class="content">
-            <nuxt-link :to="'/sirvi?cat=' + cat.name.toLowerCase()">
-              <category :name="cat.name" :src="cat.src" />
+            <nuxt-link
+              :to="`/sirvi?cat=${cat.name.toLowerCase()}&cat_id=${cat.id}`"
+            >
+              <category :name="cat.name" :src="cat.image" />
             </nuxt-link>
           </div>
         </div>
@@ -118,28 +119,7 @@ export default {
   components: { category, frontPageHeader },
   data() {
     return {
-      categories: [
-        {
-          id: 0,
-          name: 'Asukoht',
-          src: 'images/categories/places.jpg'
-        },
-        {
-          id: 1,
-          name: 'Meelelahutus',
-          src: 'images/categories/entertainment.jpg'
-        },
-        {
-          id: 2,
-          name: 'Toitlustus',
-          src: 'images/categories/food.jpg'
-        },
-        {
-          id: 3,
-          name: 'Majutus',
-          src: 'images/categories/accomodation.jpg'
-        }
-      ],
+      categories: [],
       points: [
         {
           id: 0,
@@ -227,7 +207,11 @@ export default {
       ]
     }
   },
-  async mounted() {}
+  async mounted() {
+    const categories = await this.$axios('api/serviceCategory/all')
+
+    this.categories = categories.data
+  }
 }
 </script>
 

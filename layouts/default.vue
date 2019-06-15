@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page--wrapper">
     <page-header />
     <nuxt />
     <page-footer />
@@ -17,4 +17,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.page--wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+</style>

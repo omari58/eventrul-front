@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   height: 100px;
-  position: relative;
+  width: 100%;
 
   margin-top: 50px;
 
