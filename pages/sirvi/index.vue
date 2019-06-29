@@ -9,14 +9,18 @@
           style="box-shadow: none"
         >
           <div class="content">
-            <div @click="updateCategory(cat.id)">
+            <div @click="updateCategory(cat.name, cat.id)">
               <category :name="cat.name" :src="cat.image" />
             </div>
           </div>
         </div>
       </div>
       <h1 class="ui header center aligned">
-        {{ $route.query.cat ? `Vali ${$route.query.cat}` : 'Sirvi valikuid' }}
+        {{
+          $route.query.cat
+            ? `Vali ${$route.query.cat.toLowerCase()}`
+            : 'Sirvi valikuid'
+        }}
       </h1>
 
       <div class="ui fluid search" style="width: 100%">
@@ -159,7 +163,7 @@
               v-for="n in 10"
               :key="n"
               class="ui rounded image"
-              :src="selectedItem.src"
+              :src="selectedItem.image"
             />
           </div>
         </div>
@@ -194,7 +198,7 @@
               class="ui horizontal fluid card"
             >
               <div class="optionImage">
-                <img :src="option.image" />
+                <img :src="selectedItem.image" />
               </div>
               <div class="content">
                 <h3 class="header center aligned">{{ option.title }}</h3>
@@ -255,7 +259,7 @@ export default {
     }
   },
   async mounted() {
-    const tags = await this.$axios('api/tag/all')
+    const tags = await this.$axios('api/tags/all')
 
     for (const tag of tags.data) {
       tag.selected = false
@@ -263,7 +267,7 @@ export default {
 
     this.tags = tags.data
 
-    const categories = await this.$axios('api/serviceCategory/all')
+    const categories = await this.$axios('api/serviceCategories/all')
 
     this.categories = categories.data
 
@@ -290,12 +294,11 @@ export default {
     /* eslint-enable */
   },
   methods: {
-    async updateCategory(catId) {
-      const categoryItems = await this.$axios(
-        'api/partnerService/category/' + catId
-      )
-
-      this.categoryItems = categoryItems.data
+    updateCategory(catName, catId) {
+      this.$router.push({
+        path: 'sirvi',
+        query: { cat: catName, cat_id: catId }
+      })
     },
     showModal(item) {
       this.selectedItem = item

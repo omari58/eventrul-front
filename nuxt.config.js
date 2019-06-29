@@ -95,9 +95,9 @@ export default {
 
   proxy: {
     '/api/': {
-      target: 'https://instaevent-project-002.appspot.com',
+      target: 'http://127.0.0.1:3333',
       pathRewrite: {
-        '^/api' : ''
+        '^/api': ''
       }
     }
   },

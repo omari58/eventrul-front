@@ -208,7 +208,7 @@ export default {
     }
   },
   async mounted() {
-    const categories = await this.$axios('api/serviceCategory/all')
+    const categories = await this.$axios('api/serviceCategories/all')
 
     this.categories = categories.data
   }

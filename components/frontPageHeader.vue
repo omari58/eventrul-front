@@ -163,7 +163,7 @@ export default {
   }
   100% {
     -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    transform: translateY(-25px);
   }
 }
 @keyframes slide-top {
@@ -173,7 +173,7 @@ export default {
   }
   100% {
     -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    transform: translateY(-25px);
   }
 }
 </style>
