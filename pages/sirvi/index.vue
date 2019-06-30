@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="ui dimmer" :class="{ active: loading }">
+      <div class="ui text loader">Laeb</div>
+    </div>
     <div class="ui container">
       <div class="ui four stackable centered  cards">
         <div
@@ -141,6 +144,11 @@
       <div v-else class="ui basic segment text center aligned massive">
         Kategooria on tühi! :(
       </div>
+      <div class="ui right rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
     </div>
 
     <div class="ui long large modal" id="browseModal">
@@ -175,12 +183,9 @@
               v-for="extra in selectedItem.serviceExtraInfos"
               :key="extra.id"
               class="statistic"
-              :data-tooltip="extra.description"
-              data-position="top left"
-              data-variation="large"
             >
               <div class="value">
-                <i :class="`grey ${extra.iconName} icon`"></i>
+                <i :class="`grey ${extra.icon} icon`"></i>
               </div>
               <div class="label">
                 {{ extra.title }}
@@ -252,6 +257,7 @@ export default {
   },
   data() {
     return {
+      loading: true,
       selectedItem: {},
       tags: [],
       categories: [],
@@ -290,15 +296,28 @@ export default {
     })
     $('.ui.dropdown').dropdown()
 
-    $('#browseModal').modal()
+    $('#browseModal').modal({
+      autofocus: false,
+      observeChanges: true
+    })
     /* eslint-enable */
+
+    this.loading = false
   },
   methods: {
-    updateCategory(catName, catId) {
+    async updateCategory(catName, catId) {
+      this.loading = true
       this.$router.push({
         path: 'sirvi',
         query: { cat: catName, cat_id: catId }
       })
+
+      const categoryItems = await this.$axios(
+        'api/partnerService/category/' + catId
+      )
+
+      this.categoryItems = categoryItems.data
+      this.loading = false
     },
     showModal(item) {
       this.selectedItem = item
@@ -306,6 +325,7 @@ export default {
       /*$('#optionCalendar').calendar({
         type: 'date'
       })*/
+      $('#browseModal').modal('refresh')
       $('#browseModal').modal('show')
       /* eslint-enable */
     }
