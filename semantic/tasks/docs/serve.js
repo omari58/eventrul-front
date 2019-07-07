@@ -1,95 +1,83 @@
 /*******************************
  Serve Docs
  *******************************/
-var
-  gulp        = require('gulp'),
+const gulp = require('gulp')
 
-  // node dependencies
-  console     = require('better-console'),
+// node dependencies
+const console = require('better-console')
 
-  // gulp dependencies
-  print       = require('gulp-print').default,
+// gulp dependencies
+const print = require('gulp-print').default
 
-  // user config
-  config      = require('../config/docs'),
+// user config
+let config = require('../config/docs')
 
-  // task config
-  tasks       = require('../config/tasks'),
-  configSetup = require('../config/project/config'),
+// task config
+const tasks = require('../config/tasks')
+const configSetup = require('../config/project/config')
 
-  // shorthand
-  log         = tasks.log,
+// shorthand
+const log = tasks.log
 
-  css         = require('../build/css'),
-  js          = require('../build/javascript'),
-  assets      = require('../build/assets')
-;
-
-
-module.exports = function () {
-
+const css = require('../build/css')
+const js = require('../build/javascript')
+const assets = require('../build/assets')
+module.exports = function() {
   // use a different config
-  config = configSetup.addDerivedValues(config);
+  config = configSetup.addDerivedValues(config)
 
-  console.clear();
-  console.log('Watching source files for changes');
+  console.clear()
+  console.log('Watching source files for changes')
 
-  /*--------------
+  /* --------------
      Copy Source
-  ---------------*/
+  --------------- */
 
-  gulp
-    .watch(['src/**/*.*'])
-    .on('all', function (event, path) {
-      // We don't handle deleted files yet
-      if (event === 'unlink' || event === 'unlinkDir') {
-        return;
-      }
-      return gulp.src(path, {
+  gulp.watch(['src/**/*.*']).on('all', function(event, path) {
+    // We don't handle deleted files yet
+    if (event === 'unlink' || event === 'unlinkDir') {
+      return
+    }
+    return gulp
+      .src(path, {
         base: 'src/'
       })
-        .pipe(gulp.dest(config.paths.output.less))
-        .pipe(print(log.created))
-        ;
-    })
-  ;
+      .pipe(gulp.dest(config.paths.output.less))
+      .pipe(print(log.created))
+  })
 
-  /*--------------
+  /* --------------
     Copy Examples
-  ---------------*/
+  --------------- */
 
-  gulp
-    .watch(['examples/**/*.*'])
-    .on('all', function (event, path) {
-      // We don't handle deleted files yet
-      if (event === 'unlink' || event === 'unlinkDir') {
-        return;
-      }
-      return gulp.src(path, {
+  gulp.watch(['examples/**/*.*']).on('all', function(event, path) {
+    // We don't handle deleted files yet
+    if (event === 'unlink' || event === 'unlinkDir') {
+      return
+    }
+    return gulp
+      .src(path, {
         base: 'examples/'
       })
-        .pipe(gulp.dest(config.paths.output.examples))
-        .pipe(print(log.created))
-        ;
-    })
-  ;
+      .pipe(gulp.dest(config.paths.output.examples))
+      .pipe(print(log.created))
+  })
 
-  /*--------------
+  /* --------------
       Watch CSS
-  ---------------*/
+  --------------- */
 
-  css.watch('docs', config);
+  css.watch('docs', config)
 
-  /*--------------
+  /* --------------
       Watch JS
-  ---------------*/
+  --------------- */
 
-  js.watch('docs', config);
+  js.watch('docs', config)
 
-  /*--------------
+  /* --------------
     Watch Assets
-  ---------------*/
+  --------------- */
 
-  assets.watch('docs', config);
-
-};
+  assets.watch('docs', config)
+}

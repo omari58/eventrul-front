@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'keyPoint',
+  name: 'KeyPoint',
   props: ['title', 'icon', 'content']
 }
 </script>

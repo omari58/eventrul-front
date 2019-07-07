@@ -10,14 +10,14 @@
         </div>
       </nuxt-link>
       <div class="right menu">
-        <a class="item">
+        <a class="item" @click="$openServiceProviderModal()">
           Teenusepakkujale
         </a>
         <a class="item">
           Kontakt
         </a>
         <div class="item">
-          <button class="ui button small primary">
+          <button class="ui button small primary" @click="$openLoginModal()">
             LOGI SISSE
           </button>
         </div>
@@ -31,14 +31,14 @@
             <div class="item">
               <div class="content">
                 <div class="ui header huge">
-                  Tahad korraldada ägeda ürituse?
+                  Korraldad ägedat üritust?
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="content">
-                <h4 class="ui header">MILLAL?</h4>
-                <div class="ui calendar" id="date_calendar">
+                <h4 class="ui header">Millal?</h4>
+                <div id="date_calendar" class="ui calendar">
                   <div class="ui input left icon fluid large">
                     <i class="calendar icon"></i>
                     <input type="text" placeholder="Kuupäev" />
@@ -48,7 +48,7 @@
             </div>
             <div class="item">
               <div class="content">
-                <h4 class="ui header">KUS?</h4>
+                <h4 class="ui header">Kus?</h4>
                 <div class="ui fluid left icon input large">
                   <input type="text" placeholder="Asukoht" />
                   <i class="map marker icon"></i>
@@ -57,7 +57,7 @@
             </div>
             <div class="item">
               <div class="content">
-                <h4 class="ui header">MITMEKESI?</h4>
+                <h4 class="ui header">Mitmele?</h4>
                 <div class="ui fluid left icon input large">
                   <input type="text" placeholder="Inimeste arv" />
                   <i class="users icon"></i>
@@ -75,9 +75,9 @@
         </div>
       </div>
       <i
+        v-scroll-to="'#FpScrollTarget'"
         class="angle double down huge inverted icon slide-top"
         style="position: absolute; left: 0; right: 0; margin: auto; bottom: 1%; cursor: pointer"
-        v-scroll-to="'#FpScrollTarget'"
       ></i>
     </div>
   </div>
@@ -85,7 +85,7 @@
 
 <script>
 export default {
-  name: 'frontPageHeader',
+  name: 'FrontPageHeader',
   data() {
     return {}
   },

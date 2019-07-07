@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   /*
@@ -50,7 +52,8 @@ export default {
         type: 'text/javascript'
       },
       {
-        src: 'https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js',
+        src:
+          'https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js',
         type: 'text/javascript'
       },
       {
@@ -79,7 +82,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/fontawesome', '~/plugins/globals'],
+  plugins: [
+    '~/plugins/fontawesome',
+    '~/plugins/globals',
+    { src: '~/plugins/vuex-persist', ssr: false }
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -90,12 +97,20 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/moment',
+    '@nuxtjs/dotenv',
     'vue-scrollto/nuxt'
   ],
+
+  moment: {
+    locales: ['et'],
+    defaultLocale: 'et'
+  },
 
   proxy: {
     '/api/': {
       target: 'http://127.0.0.1:3333',
+      //  target: 'https://instaevent-project-002.appspot.com',
       pathRewrite: {
         '^/api': ''
       }
@@ -120,6 +135,16 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
   }
 }

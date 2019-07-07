@@ -6,18 +6,14 @@
   Lets you serve files to a local documentation instance
   https://github.com/Semantic-Org/Semantic-UI-Docs/
 */
-module.exports = function (gulp) {
+module.exports = function(gulp) {
+  const // docs tasks
+    install = require('./../install')
+  const checkInstall = require('./../check-install')
+  gulp.task('install', install)
+  gulp.task('install').description = 'Runs set-up'
 
-  var
-    // docs tasks
-    install      = require('./../install'),
-    checkInstall = require('./../check-install')
-  ;
-
-  gulp.task('install', install);
-  gulp.task('install').description = 'Runs set-up';
-
-  gulp.task('check-install', checkInstall);
-  gulp.task('check-install').description = 'Displays current version of Semantic';
-
-};
+  gulp.task('check-install', checkInstall)
+  gulp.task('check-install').description =
+    'Displays current version of Semantic'
+}

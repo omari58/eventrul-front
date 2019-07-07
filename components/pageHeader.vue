@@ -8,7 +8,7 @@
         </div>
       </nuxt-link>
       <div class="right menu">
-        <a class="item">
+        <a class="item" @click="$openServiceProviderModal()">
           Teenusepakkujale
         </a>
         <a class="item">
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'pageHeader'
+  name: 'PageHeader'
 }
 </script>
 

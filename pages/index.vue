@@ -1,7 +1,7 @@
 <template>
   <div>
     <front-page-header />
-    <div class="ui container" id="FpScrollTarget">
+    <div id="FpScrollTarget" class="ui container">
       <div class="ui huge header">Kust soovid alustada?</div>
       <div class="ui four stackable cards">
         <div
@@ -14,7 +14,7 @@
             <nuxt-link
               :to="`/sirvi?cat=${cat.name.toLowerCase()}&cat_id=${cat.id}`"
             >
-              <category :name="cat.name" :src="cat.image" />
+              <category :name="cat.name" :src="cat.picture.resource_link" />
             </nuxt-link>
           </div>
         </div>

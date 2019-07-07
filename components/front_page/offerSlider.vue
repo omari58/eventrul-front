@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'offerSlider',
+  name: 'OfferSlider',
   props: ['offers']
 }
 </script>
