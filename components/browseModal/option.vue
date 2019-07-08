@@ -1,7 +1,7 @@
 <template>
-  <div class="ui basic segment">
-    <div class="optionImage">
-      <img :src="data.image" />
+  <div class="ui horizontal fluid card">
+    <div class="image" style="width: 250px">
+      <img :src="data.image" style="height: 100%; object-fit: cover" />
     </div>
     <div class="content">
       <h3 class="header center aligned">{{ data.title }}</h3>

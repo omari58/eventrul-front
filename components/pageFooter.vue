@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="ui modal" id="serviceProviderInfoModal">
+    <div id="serviceProviderInfoModal" class="ui modal">
       <i class="close icon"></i>
       <div class="header">
         Teenusepakkujale
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="ui modal" id="loginModal">
+    <div id="loginModal" class="ui modal">
       <i class="close icon"></i>
       <div class="header">
         Logi sisse

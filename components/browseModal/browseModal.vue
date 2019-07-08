@@ -16,10 +16,10 @@
       <div class="ui basic segment aligned center">
         <div class="ui small centered images modal-images">
           <img
-            v-for="n in 10"
-            :key="n"
+            v-for="item in service.images"
+            :key="item.id"
             class="ui rounded image"
-            :src="service.image"
+            :src="item.link"
           />
         </div>
       </div>
@@ -45,13 +45,13 @@
       <div class="ui basic segment">
         <h2 class="ui header center aligned">Tee oma valik</h2>
         <div class="ui cards">
-          <div
-            v-for="option in service.serviceOptions"
-            :key="`option-${option.id}`"
-            class="ui horizontal fluid card"
-          >
-            <service-option :data="option" :service="service" />
-          </div>
+          <template v-for="option in service.serviceOptions">
+            <service-option
+              :key="option.id"
+              :data="option"
+              :service="service"
+            />
+          </template>
         </div>
       </div>
     </div>

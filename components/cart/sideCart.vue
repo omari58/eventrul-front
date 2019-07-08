@@ -59,7 +59,7 @@
         Vormista tellimus
       </div>
     </div>
-    <div class="ui modal" id="orderConfirmModal">
+    <div id="orderConfirmModal" class="ui modal">
       <i class="close icon"></i>
       <div class="header">
         Tellimuse kinnitus

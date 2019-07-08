@@ -4,7 +4,7 @@
       <div class="ui text loader">Laeb</div>
     </div>
     <div class="ui container">
-      <div class="ui basic segment" id="cartStickyTarget">
+      <div id="cartStickyTarget" class="ui basic segment">
         <side-cart v-if="$store.state.cart.cart.length > 0" />
         <div class="ui basic segment">
           <div class="ui four stackable centered  cards">
@@ -188,7 +188,7 @@ export default {
 
     this.tags = tags.data
 
-    const categories = await this.$axios('api/serviceCategories/all')
+    const categories = await this.$axios('api/serviceCategories')
 
     this.categories = categories.data
 
@@ -196,7 +196,7 @@ export default {
       ? await this.$axios(
           'api/partnerService/category/' + this.$route.query.cat_id
         )
-      : await this.$axios('api/partnerService/all')
+      : await this.$axios('api/partnerServices')
 
     this.categoryItems = categoryItems.data
 

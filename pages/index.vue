@@ -14,7 +14,7 @@
             <nuxt-link
               :to="`/sirvi?cat=${cat.name.toLowerCase()}&cat_id=${cat.id}`"
             >
-              <category :name="cat.name" :src="cat.picture.resource_link" />
+              <category :name="cat.name" :src="cat.image" />
             </nuxt-link>
           </div>
         </div>
@@ -208,9 +208,9 @@ export default {
     }
   },
   async mounted() {
-    const categories = await this.$axios('api/serviceCategories/all')
+    const { data } = await this.$axios('api/serviceCategories')
 
-    this.categories = categories.data
+    this.categories = data
   }
 }
 </script>
