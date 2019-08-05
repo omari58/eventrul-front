@@ -180,7 +180,7 @@ export default {
     }
   },
   async mounted() {
-    const tags = await this.$axios('api/tags/all')
+    const tags = await this.$axios('api/tags')
 
     for (const tag of tags.data) {
       tag.selected = false
